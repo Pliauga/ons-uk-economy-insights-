@@ -5,7 +5,7 @@ An automated SQL analytics model parsing fortnightly survey waves from the Offic
 
 ## Business Questions Answered
 1. How stable are survey completion rates across BICS publication cycles?
-2. What are the leading operational constraints affecting enterprise-level firms versus SMEs?
+2. What are the leading operational constraints affecting enterprise level firms versus SMEs?
 3. How do price expectations correlate with energy price concerns?
 
 ## Key SQL Skills Demonstrated
