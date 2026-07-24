@@ -30,10 +30,10 @@ raw_ons (PostgreSQL)
        └── fct_business_insights.sql (DENSE_RANK challenge severity)
 
 Data Testing & Quality Assurance
-Automated dbt schema tests are implemented in _marts__models.yml to guarantee data integrity:
-Primary Key Integrity: unique and not_null assertions on wave_id and insight_id.
-Referential Integrity: relationships tests linking fct_business_insights to dim_survey_waves.
-Categorical Validation: accepted_values checks on company size segments (All Businesses, 10+ Employees).
+Automated dbt schema tests are implemented in _marts__models.yml to guarantee data integrity
+Primary Key Integrity - unique and not_null assertions on wave_id and insight_id.
+Referential Integrity - relationships tests linking fct_business_insights to dim_survey_waves.
+Categorical Validation - accepted_values checks on company size segments (All Businesses, 10+ Employees).
 
 Tech Stack & Tools
 * Data Warehouse: PostgreSQL 15+ (Snowflake compatible)
