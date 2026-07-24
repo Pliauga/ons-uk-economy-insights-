@@ -1,22 +1,30 @@
-# ONS BICS: UK Business Health & Macro Sentiment Pipeline
+# ONS BICS: UK Business Sentiment & Analytics Engineering Pipeline
 
-## Executive Summary
-An automated SQL analytics model parsing fortnightly survey waves from the Office for National Statistics (ONS) to monitor UK economic resilience, inflation sentiment, and business risk factors.
+## Why I Built This
+Most data projects rely on synthetic sample datasets like *Superstore* or *Titanic*. I built this end-to-end pipeline using real, raw survey waves from the **Office for National Statistics (ONS) Business Insights and Conditions Survey (BICS)** to track actual commercial pressures facing UK businesses (inflation, turnover expectations, and labor cost constraints).
 
-## Business Questions Answered
-1. How stable are survey completion rates across BICS publication cycles?
-2. What are the leading operational constraints affecting enterprise level firms versus SMEs?
-3. How do price expectations correlate with energy price concerns?
+---
 
-## Key SQL Skills Demonstrated
-- Star Schema Data Modeling (Fact & Dimension Tables)
-- Window Functions (`LAG`, `DENSE_RANK`) for trend & variance analysis
-- Common Table Expressions (CTEs) for clean query design
+## Visualizing UK Macro Insights
+![ONS BICS Visualisation](ons_bics_visualisation.png)
 
-## Tech Stack
-- SQL Engine: PostgreSQL / Snowflake
-- Dashboard Layer: Tableau / Power BI
+---
 
-Why I built this:
-I wanted to build a project using real-world public datasets rather than toy data like Superstore or Titanic. I took raw survey waves from the Office for National Statistics (ONS) Business Insights report to see what UK companies are actually reporting regarding turnover, inflation, and hiring challenges.
-This repo contains the database setup, data transformations, window function queries comparing SMEs against larger enterprises, and a couple of Python scripts to visualize the main trends.
+##  Key Business Findings (July 2026 Data)
+* **Enterprise vs. SME Disparity:** While overall businesses rank **Economic Uncertainty (32%)** as their top turnover threat, larger firms (10+ employees) are overwhelmingly constrained by **Cost of Labour (36%)**.
+* **Energy Inflation Risk:** **59%** of UK businesses report concern over energy prices, with **24%** actively planning price increases to offset energy overheads.
+* **Survey Participation Health:** Response volumes peaked at **26.7%** in Wave 159 before normalizing to **26.1%** in Wave 160.
+
+---
+
+##  Data Architecture & dbt Modeling
+This repository transforms raw ONS survey metrics into clean analytical data models using **dbt (data build tool)**:
+
+```text
+raw_ons (PostgreSQL) 
+   └── staging/ 
+       ├── stg_ons_survey_waves.sql
+       └── stg_ons_business_insights.sql
+   └── marts/
+       ├── dim_survey_waves.sql (Window functions, LAG participation tracking)
+       └── fct_business_insights.sql (DENSE_RANK challenge severity)
