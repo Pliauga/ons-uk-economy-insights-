@@ -1,7 +1,7 @@
 # ONS BICS: UK Business Sentiment & Analytics Engineering Pipeline
 
 ## Why I Built This
-Most data projects rely on synthetic sample datasets like *Superstore* or *Titanic*. I built this end-to-end pipeline using real, raw survey waves from the **Office for National Statistics (ONS) Business Insights and Conditions Survey (BICS)** to track actual commercial pressures facing UK businesses (inflation, turnover expectations, and labor cost constraints).
+Most data projects rely on synthetic sample datasets like *Superstore* or *Titanic*. I built this end to end pipeline using real, raw survey waves from the **Office for National Statistics (ONS) Business Insights and Conditions Survey (BICS)** to track actual commercial pressures facing UK businesses (inflation, turnover expectations, and labor cost constraints).
 
 ---
 
