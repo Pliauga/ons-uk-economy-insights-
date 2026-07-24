@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_survey_waves
+    description: "Dimension table containing survey sampling health and wave participation metrics."
+    columns:
+      - name: wave_id
+        description: "Primary key for the survey wave cycle."
+        tests:
+          - unique
+          - not_null
+      - name: response_rate_pct
+        description: "Percentage of sampled businesses that completed the survey."
+        tests:
+          - not_null
+
+  - name: fct_business_insights
+    description: "Fact table recording macroeconomic concerns and trading sentiment."
+    columns:
+      - name: insight_id
+        description: "Primary key for individual business metrics."
+        tests:
+          - unique
+          - not_null
+      - name: wave_id
+        description: "Foreign key joining to dim_survey_waves."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_survey_waves')
+              field: wave_id
+      - name: business_size_segment
+        description: "Classification of business size (All Businesses vs 10+ Employees)."
+        tests:
+          - accepted_values:
+              values: ['All Businesses', '10+ Employees']
